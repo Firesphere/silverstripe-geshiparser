@@ -1,14 +1,14 @@
 <?php
+
+namespace Firesphere\GeSHiParser;
+
 /**
- * Created by IntelliJ IDEA.
- * User: simon
- * Date: 15/06/16
- * Time: 19:37
+ * Class GeSHiParser
+ *
+ * Handle the shortcode [code] to parse it into nicely formatted and highlighted code.
+ *
+ * @package FireSphere\GeSHiParser
  */
-
-namespace FireSphere\GeSHiParser;
-
-
 class GeSHiParser
 {
 
@@ -16,6 +16,9 @@ class GeSHiParser
     /**
      * @param string $arguments array with the type
      * @param array $code string of the code to parse
+     * @param \ShortcodeParser $parser Parser root user.
+     * @param string $shortcode
+     * @param array $extra
      *
      * @return String of parsed code.
      */
