@@ -2,7 +2,7 @@
 
 ## usage
 
-use [code type=language]YourCode Here[/code] and let GeSHi do the magic.
+use `[code type=language title="My code title"]YourCode Here[/code]` and let GeSHi do the magic.
 
 ## installation
 
