@@ -19,7 +19,7 @@ before_script:
   - cd ~/builds/ss
 
 script:
-  - vendor/bin/phpunit geshiparser/tests  --coverage-clover=coverage.xml
+  - vendor/bin/phpunit geshiparser/tests
 
 after_success:
   - cd ~/builds/ss/geshiparser
