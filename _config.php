@@ -1,2 +1,6 @@
 <?php
-ShortcodeParser::get()->register('code', array('Firesphere\GeSHiParser\GeSHiParser', 'handle_shortcode'));
+use SilverStripe\View\Parsers\ShortcodeParser;
+use Firesphere\GeSHiParser\GeSHiParser;
+
+ShortcodeParser::get('default')
+    ->register('code', array(GeSHiParser::class, 'handle_shortcode'));
