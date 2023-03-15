@@ -1,25 +1,26 @@
 {
-    "name": "firesphere/silverstripe-geshiparser",
-    "description": "Parse [code] blocks from the Content in SilverStripe",
-    "type": "silverstripe-module",
-    "keywords": [
-        "silverstripe",
-        "Shortcode",
-        "Parsers"
-    ],
-    "license": "BSD-3-Clause",
-    "authors": [
-        {
-            "name": "Simon 'Firesphere' Erkelens",
-            "email": "simonerkelens@silverstripe.com"
-        }
-    ],
-    "require": {
-        "silverstripe/framework": "4.x",
-        "geshi/geshi": "dev-master"
-    },
-    "extra": {
-        "installer-name": "geshiparser"
-    },
-    "target-dir": "geshiparser"
+  "name": "firesphere/silverstripe-geshiparser",
+  "description": "Parse [code] blocks from the Content in SilverStripe",
+  "type": "silverstripe-vendormodule",
+  "keywords": [
+    "silverstripe",
+    "Shortcode",
+    "Parsers"
+  ],
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Simon 'Firesphere' Erkelens",
+      "email": "simonerkelens@silverstripe.com"
+    }
+  ],
+  "require": {
+    "silverstripe/framework": "4.x",
+    "geshi/geshi": "v1.0.9.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Firesphere\\GeSHiParser\\": "src/"
+    }
+  }
 }
