@@ -2,16 +2,10 @@
 
 namespace Firesphere\GeSHiParser;
 
-use SilverStripe\View\Parsers\ShortcodeParser;
 use SilverStripe\View\Parsers\ShortcodeHandler;
+use SilverStripe\View\Parsers\ShortcodeParser;
+use SilverStripe\View\Requirements;
 
-/**
- * Class GeSHiParser
- *
- * Handle the shortcode [code] to parse it into nicely formatted and highlighted code.
- *
- * @package FireSphere\GeSHiParser
- */
 class GeSHiParser implements ShortcodeHandler
 {
 
@@ -36,17 +30,17 @@ class GeSHiParser implements ShortcodeHandler
             $arguments['type'] = 'php';
         }
         $code = self::br2nl($code);
-        $code = trim(str_replace("</p><p>", "\n", $code));
+        $code = trim(str_replace("</p><p>", PHP_EOL . PHP_EOL, $code));
         $geshi = new \GeSHi(html_entity_decode($code), $arguments['type']);
+        $geshi->enable_classes(true);
         $geshi->enable_line_numbers(GESHI_NORMAL_LINE_NUMBERS);
-
-        $result = '<h4 class="parsed-code-title">' . (isset($arguments['title']) ? $arguments['title'] : $arguments['type']) . ':</h4>';
-        $result .= $geshi->parse_code();
-        return $result;
+        $style = sprintf('<style type="text/css">%s</style>', $geshi->get_stylesheet());
+        Requirements::insertHeadTags($style);
+        return sprintf('<h4 class="parsed-code-title">%s:</h4>%s', $arguments['title'] ?? $arguments['type'], $geshi->parse_code());
     }
 
     public static function br2nl($string){
-        return preg_replace('#<br\s*?/?>#i', "\n", $string);
+        return preg_replace('#<br\s*?/?>#i', PHP_EOL, $string);
     }
 
 }
