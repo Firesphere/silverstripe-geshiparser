@@ -15,7 +15,7 @@
     }
   ],
   "require": {
-    "silverstripe/framework": "4.x",
+    "silverstripe/framework": ">=4",
     "geshi/geshi": "v1.0.9.1"
   },
   "autoload": {
